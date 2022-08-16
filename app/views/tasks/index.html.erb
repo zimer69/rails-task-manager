@@ -1,0 +1,16 @@
+<div class='m-4'>
+<h1>My tasks</h1>
+<ul>
+  <% @tasks.each do |task| %>
+  <li ><%= link_to task.title, task_path(task), class: "text-decoration-none" %> ·
+      <%= link_to task_path(task), data: {turbo_method: :delete, turbo_confirm: "Delete #{task.title}?"} do %>
+            <i class="fa-solid fa-trash-can"></i>
+      <% end %>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to new_task_path, class: "text-decoration-none"  do%>
+  <i class="fa-solid fa-plus"></i> Add a New Task
+<% end %>
+</div>
